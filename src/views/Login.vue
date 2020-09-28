@@ -5,11 +5,13 @@
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">Sign in</h1>
           <p class="text-xs-center">
-            <a href="">Need an account?</a>
+            <router-link :to="{ name: 'register' }"
+              >Need an account?</router-link
+            >
           </p>
 
           <ul class="error-messages">
-            <li v-for="error in errors" :key="error">{{ error }}</li>
+            <li v-for="(v, k) in errors" :key="k">{{ k }} {{ v | error }}</li>
           </ul>
 
           <form>

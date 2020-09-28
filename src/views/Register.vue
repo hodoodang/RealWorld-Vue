@@ -5,18 +5,21 @@
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">Sign up</h1>
           <p class="text-xs-center">
-            <a href="">Have an account?</a>
+            <router-link :to="{ name: 'login' }">
+              Have an account?
+            </router-link>
           </p>
 
-          <ul class="error-messages">
-            <li>That email is already taken</li>
+          <ul v-if="errors" class="error-messages">
+            <li v-for="(v, k) in errors" :key="k">{{ k }} {{ v | error }}</li>
           </ul>
 
-          <form>
+          <form @submit.prevent="onSubmit">
             <fieldset class="form-group">
               <input
                 class="form-control form-control-lg"
                 type="text"
+                v-model="username"
                 placeholder="Your Name"
               />
             </fieldset>
@@ -24,6 +27,7 @@
               <input
                 class="form-control form-control-lg"
                 type="text"
+                v-model="email"
                 placeholder="Email"
               />
             </fieldset>
@@ -31,6 +35,7 @@
               <input
                 class="form-control form-control-lg"
                 type="password"
+                v-model="password"
                 placeholder="Password"
               />
             </fieldset>
