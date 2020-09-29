@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://conduit.example.io/api"
+  baseURL: "https://conduit.productionready.io/api"
 });
 
 export function setToken(jwt) {

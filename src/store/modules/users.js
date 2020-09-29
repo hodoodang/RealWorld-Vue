@@ -1,4 +1,4 @@
-import { api, setToken } from "../api";
+import { api, clearToken, setToken } from "../api";
 export default {
   namespaced: true,
   state: {
@@ -21,6 +21,7 @@ export default {
       commit("setUser", user);
     },
     loginUser: async function({ commit }, { email, password }) {
+      clearToken();
       try {
         const response = await api.post("/users/login", {
           user: {

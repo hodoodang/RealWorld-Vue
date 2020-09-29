@@ -11,7 +11,7 @@
           </p>
 
           <ul class="error-messages">
-            <li v-for="(v, k) in errors" :key="k">{{ k }} {{ v | error }}</li>
+            <li v-for="(error, k) in errors" :key="k">{{ error.messages }}</li>
           </ul>
 
           <form>
@@ -31,7 +31,7 @@
                 placeholder="Password"
               />
             </fieldset>
-            <button class="btn btn-lg btn-primary pull-xs-right">
+            <button @click="login" class="btn btn-lg btn-primary pull-xs-right">
               Sign in
             </button>
           </form>
